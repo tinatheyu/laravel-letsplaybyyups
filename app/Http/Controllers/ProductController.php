@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProductController extends Controller
 {
@@ -109,7 +110,11 @@ class ProductController extends Controller
     public function cetak()
 {
     $products = Product::all(); // Ambil semua data produk
-    return view('products.product-cetak', compact('products')); // Pastikan view ini ada
+    // return view('products.product-cetak', compact('products')); // Pastikan view ini ada
+    $product=product::all();
+    $pdf=Pdf::loadview('products/product-cetak',compact('product'));
+    return $pdf->download('laporan.pdf');
 }
+
 
 }

@@ -33,7 +33,7 @@
     <table class="table-data">
         <thead>
             <tr>
-                <th>id_produk</th>
+                <th>no</th>
                 <th>Foto</th>
                 <th>Nama Barang</th>
                 <th>Kategori</th>
@@ -42,16 +42,17 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($products as $product)
+            @forelse ($product as $product)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>
-                    @if ($product->foto && file_exists(public_path('img_products/' . $product->foto)))
-                        <img src="{{ asset('img_products/' . $product->foto) }}" alt="Foto" width="50">
-                    @else
-                        No Image
-                    @endif
-                </td>
+    @if ($product->foto && file_exists(public_path('img_products/' . $product->foto)))
+        <img src="{{ public_path('img_products/' . $product->foto) }}" alt="Foto" width="50">
+    @else
+        No Image
+    @endif
+</td>
+
                 <td>{{ $product->nama_barang }}</td>
                 <td>{{ $product->kategori }}</td>
                 <td>{{ number_format($product->harga, 0, ',', '.') }}</td>
