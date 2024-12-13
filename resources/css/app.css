@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kustom Styling */
+.table-data {
+    @apply w-full border-collapse border border-gray-300 my-5 text-lg text-left;
+}
+
+.table-data th {
+    @apply p-3 bg-sky-500 text-white border border-gray-300;
+}
+
+.table-data td {
+    @apply p-3 border border-gray-300;
+}
+
+.table-data tr:nth-child(even) {
+    background-color: #f9f9f9; /* Tailwind tidak memiliki nth-child */
+}
+
+.table-data td img {
+    width: 50px;
+    height: auto;
+}
+
+.btn-tambah {
+    @apply bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded;
+}
